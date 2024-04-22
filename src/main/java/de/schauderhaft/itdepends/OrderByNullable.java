@@ -1,12 +1,16 @@
 package de.schauderhaft.itdepends;
 
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
 @Component
-class OrderByNullable implements Scenario{
+class OrderByNullable extends ScenarioTemplate {
+	public OrderByNullable(EventDispatcher eventDispatcher) {
+		super("Order By Null", eventDispatcher);
+	}
+
 	@Override
-	public void run(JdbcTemplate jdbcTemplate) {
+	protected Object execute(Database database) {
 		System.out.println("Order by Nullable");
+		return "";
 	}
 }

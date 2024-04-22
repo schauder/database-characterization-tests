@@ -1,12 +1,18 @@
 package de.schauderhaft.itdepends;
 
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
 @Component
-class SelectWithoutTable implements Scenario{
-	@Override
-	public void run(JdbcTemplate jdbcTemplate) {
-		jdbcTemplate.execute("select 1");
+class SelectWithoutTable extends ScenarioTemplate {
+
+	public SelectWithoutTable(EventDispatcher eventDispatcher) {
+		super("Select Without Table", eventDispatcher);
 	}
+
+	@Override
+	protected Object execute(Database database) {
+		database.template().execute("select 1");
+		return "";
+	}
+
 }
