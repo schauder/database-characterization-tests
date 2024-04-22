@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 @Component
 class OrderByNullable implements Scenario{
 	@Override
-	public void run(JdbcTemplate dataSource) {
+	public void run(JdbcTemplate jdbcTemplate) {
 		System.out.println("Order by Nullable");
 	}
 }
